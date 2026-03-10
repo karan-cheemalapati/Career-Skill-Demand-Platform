@@ -23,16 +23,16 @@ The Career & Skill Demand Intelligence Platform analyzes data from **O\*NET** an
 ```
 O*NET + BLS Raw Datasets
         |
-Data Cleaning & Preparation  <- Karan
+Data Cleaning & Preparation
 (Pandas, Jupyter Notebook)
         |
-PySpark ETL & Analytics      <- Veerababu
+PySpark ETL & Analytics 
 (Compute metrics, load to BigQuery)
         |
-FastAPI Backend             <- Sudeep & Alex
+FastAPI Backend      
 (Serve data via REST APIs)
         |
-Interactive Dashboard        <- Ajay & Alex
+Interactive Dashboard      
 (Streamlit / React frontend)
 ```
 
