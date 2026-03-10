@@ -43,8 +43,8 @@ Interactive Dashboard
 ```
 Career-Skill-Demand-Platform/
 ├── data/
-│   ├── raw_data/          # Original downloaded datasets (O*NET + BLS)
-│   └── cleaned_data/      # Cleaned and processed datasets output by ingestion
+│   ├── cleaned_data/      # Cleaned and processed datasets output by ingestion
+│   └── raw_data/          # Original downloaded datasets (O*NET + BLS)
 ├── notebooks/             # Jupyter notebooks for EDA and data cleaning
 ├── src/
 │   ├── analysis/          # Skill demand and wage analysis scripts
