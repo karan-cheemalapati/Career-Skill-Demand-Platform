@@ -47,9 +47,9 @@ Career-Skill-Demand-Platform/
 │   └── cleaned_data/      # Cleaned and processed datasets output by ingestion
 ├── notebooks/             # Jupyter notebooks for EDA and data cleaning
 ├── src/
+│   ├── analysis/          # Skill demand and wage analysis scripts
 │   ├── ingestion/         # Data loading and cleaning scripts
-│   ├── processing/        # PySpark ETL and feature engineering
-│   └── analysis/          # Skill demand and wage analysis scripts
+│   └── processing/        # PySpark ETL and feature engineering
 ├── docs/                  # Data dictionary and project documentation
 ├── tests/                 # Unit tests
 ├── .gitignore
