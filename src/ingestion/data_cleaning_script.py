@@ -33,9 +33,7 @@ import os
 import warnings
 warnings.filterwarnings('ignore')
 
-# ─────────────────────────────────────────────
-# CONFIG — update paths if needed
-# ─────────────────────────────────────────────
+# CONFIG 
 BASE_DIR   = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR   = os.path.abspath(os.path.join(BASE_DIR, "..", ".."))
 INPUT_DIR  = os.path.join(ROOT_DIR, "data", "raw_data")
@@ -50,9 +48,7 @@ print("  Data Preparation & Ingestion")
 print(f"\nInput : {INPUT_DIR}")
 print(f"Output : {OUTPUT_DIR}")
 
-# ─────────────────────────────────────────────
 # EDUCATION LEVEL MAPPING (O*NET RL Scale)
-# ─────────────────────────────────────────────
 EDUCATION_MAP = {
     1: "Less than High School",
     2: "High School Diploma or GED",
@@ -68,10 +64,7 @@ EDUCATION_MAP = {
     12: "Post-Doctoral Training"
 }
 
-# ─────────────────────────────────────────────
 # HELPER FUNCTIONS
-# ─────────────────────────────────────────────
-
 def clean_columns(df: pd.DataFrame) -> pd.DataFrame:
     """Lowercase + replace all non-alphanumeric chars with underscore."""
     df.columns = (
@@ -317,5 +310,5 @@ print(f"  wages_clean.csv            : {wages_clean.shape}")
 print(f"  merged_career_dataset.csv      : {career_dataset.shape}")
 print(f"  data_dictionary.csv            : {data_dict.shape} (saved to cleaned_data/ and docs/)")
 
-print("  All tasks complete")
+print("\nAll tasks complete")
 print(f"  Output : {OUTPUT_DIR}")
