@@ -1,0 +1,22 @@
+dataset,column,type,description,source
+skills_clean,soc_code,string,SOC code — .00 suffix removed. Primary join key.,O*NET
+skills_clean,title,string,Occupation title from O*NET,O*NET
+skills_clean,element_name,string,"Skill name (e.g. Reading Comprehension, Active Listening)",O*NET
+skills_clean,scale_id,string,"IM = Importance scale, LV = Level scale",O*NET
+skills_clean,scale_name,string,Full scale name (Importance / Level),O*NET
+skills_clean,data_value,float,Skill score on 1-5 scale,O*NET
+occupations_clean,soc_code,string,SOC code. Primary join key.,O*NET
+occupations_clean,title,string,Occupation title,O*NET
+occupations_clean,description,string,Detailed O*NET occupation description,O*NET
+education_clean,soc_code,string,SOC code. Primary join key.,O*NET
+education_clean,element_name,string,Education element name (e.g. Required Level of Education),O*NET
+education_clean,category,float,Education category number (1=Less than HS to 12=Post-Doctoral),O*NET
+education_clean,data_value,float,Percentage of workers with that education level,O*NET
+edu_preferred,soc_code,string,SOC code. Primary join key.,O*NET (derived)
+edu_preferred,preferred_education,string,Most common required education level label (from category 1-12 mapping),O*NET (derived)
+edu_preferred,preferred_edu_pct,float,Percentage of workers who hold the preferred education level,O*NET (derived)
+wages_clean,soc_code,string,BLS SOC code (e.g. 11-1011),BLS
+wages_clean,occ_title,string,BLS occupation title,BLS
+wages_clean,tot_emp,float,Total national employment estimate (BLS 2024),BLS
+wages_clean,a_mean,float,Mean annual wage USD — suppressed values converted to NaN,BLS
+wages_clean,a_median,float,Median annual wage USD — suppressed values converted to NaN,BLS
