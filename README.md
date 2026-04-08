@@ -12,7 +12,7 @@ The Career & Skill Demand Intelligence Platform analyzes data from **O\*NET** an
 - **Top in-demand skills** across all U.S. occupations
 - **Top paying occupations** nationally
 - **Education level** typically required per occupation
-- **Skill demand scores** — how widely required a skill is
+- **Skill demand scores** — how widely required a skill
 - **Salary comparisons** across different career paths
 - **Relationship between skills, education, and salary**
 
