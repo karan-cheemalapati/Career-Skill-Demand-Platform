@@ -1,16 +1,31 @@
-from pathlib import Path
+from google.cloud import bigquery
 import pandas as pd
 
-BASE_DIR = Path(__file__).resolve().parents[3]
-CLEANED_DATA_DIR = BASE_DIR / "data" / "cleaned_data"
+PROJECT_ID = "veerababu33"
+DATASET_ID = "career_analytics"
 
-MERGED_DATA_PATH = CLEANED_DATA_DIR / "merged_career_dataset.csv"
-OCCUPATIONS_DATA_PATH = CLEANED_DATA_DIR / "occupations_clean.csv"
+MERGED_TABLE = f"`{PROJECT_ID}.{DATASET_ID}.merged_career_dataset`"
+OCCUPATIONS_TABLE = f"`{PROJECT_ID}.{DATASET_ID}.occupations_clean`"
+
+
+def _run_query(query: str) -> pd.DataFrame:
+    client = bigquery.Client(project=PROJECT_ID)
+    rows = client.query(query).result()
+    data = [dict(row.items()) for row in rows]
+    return pd.DataFrame(data)
 
 
 def load_merged_data():
-    return pd.read_csv(MERGED_DATA_PATH)
+    query = f"""
+    SELECT *
+    FROM {MERGED_TABLE}
+    """
+    return _run_query(query)
 
 
 def load_occupations_data():
-    return pd.read_csv(OCCUPATIONS_DATA_PATH)
+    query = f"""
+    SELECT *
+    FROM {OCCUPATIONS_TABLE}
+    """
+    return _run_query(query)

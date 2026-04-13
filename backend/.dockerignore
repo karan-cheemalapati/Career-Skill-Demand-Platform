@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.gcp/
+.env
+.vscode/
+backend/app/gcp-key.json
+backend/app/test_bq.py
