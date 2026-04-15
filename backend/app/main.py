@@ -8,7 +8,7 @@ app = FastAPI(title="Career Skill Demand Platform API")
 origins = [
     "http://localhost:3000",
     "http://localhost:5173",
-    "https://your-frontend-domain.com",
+    "https://veerababu33.web.app",
 ]
 
 app.add_middleware(
