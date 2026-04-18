@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from backend.app.routes.skills import router as skills_router
 from backend.app.routes.occupations import router as occupations_router
+from backend.app.routes.insights import router as insights_router
 
 app = FastAPI(title="Career Skill Demand Platform API")
 
@@ -21,6 +22,7 @@ app.add_middleware(
 
 app.include_router(skills_router)
 app.include_router(occupations_router)
+app.include_router(insights_router)
 
 
 @app.get("/")

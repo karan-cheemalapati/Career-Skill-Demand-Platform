@@ -7,25 +7,48 @@ DATASET_ID = "career_analytics"
 MERGED_TABLE = f"`{PROJECT_ID}.{DATASET_ID}.merged_career_dataset`"
 OCCUPATIONS_TABLE = f"`{PROJECT_ID}.{DATASET_ID}.occupations_clean`"
 
+_merged_cache = None
+_occupations_cache = None
+
+
+def _get_bigquery_client():
+    return bigquery.Client(project=PROJECT_ID)
+
 
 def _run_query(query: str) -> pd.DataFrame:
-    client = bigquery.Client(project=PROJECT_ID)
+    client = _get_bigquery_client()
     rows = client.query(query).result()
     data = [dict(row.items()) for row in rows]
     return pd.DataFrame(data)
 
 
-def load_merged_data():
-    query = f"""
-    SELECT *
-    FROM {MERGED_TABLE}
-    """
-    return _run_query(query)
+def load_merged_data(force_refresh: bool = False):
+    global _merged_cache
+
+    if _merged_cache is None or force_refresh:
+        query = f"""
+        SELECT *
+        FROM {MERGED_TABLE}
+        """
+        _merged_cache = _run_query(query)
+
+    return _merged_cache.copy()
 
 
-def load_occupations_data():
-    query = f"""
-    SELECT *
-    FROM {OCCUPATIONS_TABLE}
-    """
-    return _run_query(query)
+def load_occupations_data(force_refresh: bool = False):
+    global _occupations_cache
+
+    if _occupations_cache is None or force_refresh:
+        query = f"""
+        SELECT *
+        FROM {OCCUPATIONS_TABLE}
+        """
+        _occupations_cache = _run_query(query)
+
+    return _occupations_cache.copy()
+
+
+def clear_data_cache():
+    global _merged_cache, _occupations_cache
+    _merged_cache = None
+    _occupations_cache = None
